@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>英雄联盟宇宙</title>
+</head>
+<link rel="stylesheet" href="http://at.alicdn.com/t/font_930102_f1pftz34ryv.css">
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+  }
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  html {
+    height: 100%;
+  }
+  body {
+    font-size:14px/1.5em;
+    color: #666;
+    height:100%;
+  }
+  .layout {
+    width: 900px;
+    margin:0 auto;
+  }
+  header {
+    position: relative;
+    background-image: url(http://yz.lol.qq.com/v1/assets/images/factions/bilgewater_splash.jpg);
+    background-color:#000;
+    background-position: center;
+    background-size: cover;
+    height:100%;
+  }
+  header .navbar {
+    height: 60px;
+    background:#121212;
+  } 
+  header .logo::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  header .logo {
+    float: left;
+    width:150px;
+    height: 60px; 
+    text-align: center;
+  }
+header .logo img {
+  vertical-align: middle;
+}
+
+  header .nav>li {
+    float: left;
+    margin: 5px;
+    margin-top: 10px;
+  }
+  header .nav {
+    float: right;
+  }
+  header .nav a {
+    display: inline-block;
+    padding: 5px;
+    padding-bottom: 10px;
+    color:#937341;
+    font-size: 20px;
+  }
+  header .nav a:hover {
+    border-bottom:1px solid #D3A55D;
+    color:#E2D8CF;
+  }
+  header .intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color:#E2D8CF;
+  }
+  header .intro>h1 {
+    font-size: 72px;
+    letter-spacing:8px;
+  }
+  header .intro>h2 {
+    font-size: 32px;
+  }
+
+  header .button {
+    display: inline-block;
+    margin-top:20px;
+    padding: 20px 60px;
+    background: #D3A55D;
+    border-radius:4px; 
+    color:#E2D8CF;
+  }
+  header .button:hover {
+    background: #937341;
+  }  
+  .bg-color{
+    background: #f7f7f7;
+    padding:1px;
+  }
+  section {
+    text-align: center;
+  }
+  section h2 {
+    margin-top: 80px;
+    font-size: 40px;
+  }
+  section ul{
+    margin-top:20px; 
+  }
+
+  section p {
+    margin-top: 10px;
+  }
+  section::after {
+    content: '';
+    display: block;
+    margin-bottom: 80px;
+  }
+  section .region .iconfont {
+    font-size: 60px;
+  }
+  section .region>li {
+    float: left;
+    width: 33.33%;
+    padding: 10px 20px;
+  }
+  section .scenic {
+  margin-top:10px; ;
+  }
+  section .scenic figure {
+    width: calc(33.33% - 20px);
+    height: 340px;
+    margin: 10px;
+    margin-top: 30px;
+    float: left;
+    background:#fff;;
+    overflow:hidden;
+    
+  }
+
+  section .scenic a {
+    display: block;
+    height: 230px;
+  }
+  section .scenic img {
+    height: 100%;
+  }
+  section .scenic figcaption{
+    margin-top:10px; 
+    font-size:20px;
+  }
+  section .scenic p {
+    padding: 0 15px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  section .other-news-box {
+    position: relative;
+  }
+  section .mask {
+  position: absolute;
+   top:0%;
+   right: 0%;
+   left: 0%;
+   bottom: 0%;
+   background: rgba(0, 0, 0, .6);
+   transition: all 0.5s ease-in-out;
+   opacity: 0;
+  }
+  section .other-news {
+   position: absolute;
+   top:3%;
+   right: 3%;
+   left: 3%;
+   bottom: 3%;
+   border: 1px solid #937341;
+   color:#937341;
+   font-size:10px;
+ }
+ section .mask:hover {
+   opacity: 1;
+ }
+  section .other-news span {
+   position: absolute;
+   display: inline-block;
+   padding: 8px;
+   width: 100%;
+   font-size: 10px;
+   top: 50%;
+   left:50%;
+   transform: translate(-50%,-50%);
+ }
+
+ section .champions > li::after {
+   content: "";
+   display: block;
+   clear: both;
+ }
+ section .champions > li::before {
+   position: absolute;
+   left: 446px;
+   top:200px;
+   content: "";
+   display: block;
+   width:4px;
+   height:200px;
+   background: rgb(226, 200, 158);
+ }
+ section .champions > li:last-child::before{
+   height: 0;
+ }
+ section .champions > li {
+   position: relative;
+   margin-top: 50px;
+   
+ }
+ section .champions > li:nth-child(odd) .bgimg {
+   float: right;
+   margin-right: calc(50% - 100px);
+ }
+
+ section .champions > li:nth-child(odd) .information {
+   float: left;
+   width: 300px;
+   text-align: right;
+ }
+ section .champions > li:nth-child(even) .bgimg {
+   float: left;
+   margin-left: calc(50% - 100px); 
+ }
+ section .champions > li:nth-child(even) .information {
+   float: right;
+   width: 300px;;
+   text-align: left;
+ }
+ section .bgimg .img-mask {
+   width: 200px;
+   height: 200px;
+   border:6px solid rgb(226, 200, 158);
+   border-radius: 50%;
+ }
+ section .bgimg .sarah{
+   background-image: url(http://yz.lol.qq.com/v1/assets/images/champion/splash/Missfortune_0.jpg);
+   background-size: 300%;
+   background-position: 80.9053% 32.2176%;
+ }
+
+  section .bgimg .raven {
+   background-image: url(http://yz.lol.qq.com/v1/assets/images/champion/splash/Riven_0.jpg);
+   background-size: 300%;
+   background-position: 86.1728% 0.27894%;
+ }
+ section .bgimg .loong {
+   background-image: url(http://yz.lol.qq.com/v1/assets/images/champion/splash/Aurelionsol_0.jpg);
+   background-size: 300%;
+   background-position: 58.5432% 0.27894%;
+ }
+ section .bgimg .lu {
+   background-image: url(http://yz.lol.qq.com/v1/assets/images/champion/splash/Lulu_0.jpg);
+   background-size: 300%;
+   background-position: 78.6831% 24.1283%;
+ }
+
+  section .bgimg .end {
+    display: table-cell;
+    vertical-align: middle;
+    background: #faa824;
+    color: #fff;
+ }
+ 
+ section .champions {
+   margin-top: 40px;
+ }
+ section .story .invite-img  {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+ }
+ section .story .invite  {
+  width: 200px;
+  margin: 0 auto;
+ }
+ section .story >li {
+  width: calc(33.33% - 20px);
+  float: left;
+  margin: 0 10px;
+ }
+ section .story img {
+  width: 200%;
+ }
+ section .story {
+  margin: 50px 0;
+
+ }
+ section .story h3  {
+  margin-top: 20px;
+ }
+ section .story .icon {
+ width: 200px;
+ margin: 10px auto;
+ }
+ .icon > li{
+  float: left;
+ }
+ .icon > li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #000;
+  margin: 0 10px;
+  font-size:24px; 
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f7f7f7;
+  line-height: 40px;
+  transition: all 0.3s ease-in-out;
+ }
+ section .story .icon > li a:hover {
+  background: rgb(255, 194, 125);
+  
+ }
+ section .icon-area { 
+   background: #121212;
+   height:200px;
+ }
+
+  section .icon-area a {
+  display: inline-block;
+  margin: 50px 10px;
+  width: 200px;
+  vertical-align: top;
+ }
+ section .icon-area img {
+  display: inline-block;
+  width: 100px;
+
+ }
+ /* @media (max-width:800px){
+   .intro h2 {
+     font-size: 5px;
+   }
+   .intro h1 {
+     font-size: 9px;
+   }
+  .layout{
+    width: 800px;
+  }
+
+  section .region>li{
+    width: 100%;
+  }
+
+ } */
+ section:last-child::after{
+   margin-bottom: 0;
+ }
+ footer {
+   text-align: center;
+   height: 80%;
+   background: #121212;
+ }
+ .bgimg-end {
+   height: 90%;
+   background: url(http://yz.lol.qq.com/v1/assets/images/factions/bandle-city_splash.jpg);
+   padding: 1px;
+   color: #D3A55D; 
+ }
+
+.bgimg-end h2 {
+  margin-top:80px; 
+  margin-bottom:10px; 
+  font-size:48px; 
+ }
+
+ .bgimg-end p {
+  font-style: italic;
+ }
+
+  .input-box {
+    margin: 20px;
+ }
+ .infor-box {
+   width:680px;
+   margin: 0 auto;
+   margin-top: 30px;
+ }
+
+ .input-box input {
+   height:40px;
+   width: 300px;
+   padding: 10px;
+   border:1px solid #ccc;
+   border-radius: 3px;
+   font-weight: bold;
+ }
+ .message textarea {
+   float: right;
+   height:160px;
+   width: 300px;;
+   margin: 20px;
+   padding: 10px;
+   border:1px solid #ccc;
+   border-radius: 3px;
+   font-weight: bold;
+  
+ }
+ .ess-infor {
+   float: left; 
+ }
+.input-style:focus {
+border:1px solid rgb(7, 83, 48)
+}
+
+.submit {
+  width: 200px;
+  height: 60px;
+  background: #937341;
+  border: #937341;
+  font-size: 24px;
+  color: #f7f7f7;
+  border-radius:3px; 
+  margin-top:30px; 
+}
+.submit:hover {
+  background:#D3A55D;
+  
+}
+.bottom {
+  height:10%;
+  color: #D3A55D;
+  width: 900px;
+  margin: 0 auto;
+}
+.bottom-icon {
+  width:200px;
+  float: left;
+  margin-top:15px; 
+  margin-left: 20px;
+}
+ .bottom-icon .icon a {
+  background: #937341;
+  color: #f7f7f7;
+}
+
+ .bottom-icon .icon a:hover {
+  background:#D3A55D;
+  color: #f7f7f7;
+}
+
+.copyright{
+  float: left;
+  margin-top:27px; 
+  font-size: 12px;
+}
+.other{
+  float:right;
+  margin-top:24px; 
+  margin-right: 130px;
+}
+.other a {
+  color: #D3A55D;
+} 
+</style>
+<body>
+  <header>
+    <div class="navbar">
+    <div class="layout clearfix">  
+    <a  class="logo" href="#"> <img src="http://yz.lol.qq.com/images/3.png" alt="英雄联盟logo"></a>
+    <ul class="nav clearfix">
+      <li><a href="#">英雄</a></li>
+      <li><a href="#">地区</a></li>
+      <li><a href="#">集锦</a></li>
+      <li><a href="#">另一个宇宙</a></li>
+      <li><a href="#">地图</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="intro">
+        <h2>通过符文之地的互动地图探索英雄联盟的世界</h2>
+        <h1>欢迎来到英雄联盟宇宙</h1>
+        <a class="button" href="#">了解更多</a>
+    </div>
+  </header>
+  <main>
+    <section>
+      <div class="layout">
+      <h2>地区</h2>
+      <p>符文大地上包括：艾欧尼亚、弗雷尔卓德、比尔吉沃特、德玛西亚、诺克萨斯、暗影岛、祖安、班德尔城等。</p>
+      <ul class="region clearfix">
+        <li>
+          <span class="iconfont icon-Ayonia"></span>
+          <h3>艾欧尼亚</h3>
+          <p>艾欧尼亚的土地上充盈着未遭破坏的自然之美和原生魔法。这座庞大的岛屿上四散着人类的定居点，这是一群充满灵性的人，追求着平静和谐、与世无争的生活。
+          </p>
+        </li>
+        <li>
+          <span class="iconfont icon-Bill"></span>
+          <h3>比尔吉沃特</h3>
+          <p>比尔吉沃特是走私贩、劫掠者和不义之徒的避难港湾。在这里，富可敌国或是家破人亡都只在转瞬之间。
+          </p>
+        </li>
+        <li>
+          <span class="iconfont icon-Island"></span>
+          <h3>暗影岛</h3>
+          <p>现在被称为暗影岛的这片土地曾经是环境优美的岛屿，但却因一场魔法灾难的毁灭打击而彻底改头换面。
+          </p>
+        </li>
+      </ul>
+    </div>
+    </section>
+    <section class="bg-color">
+      <div class="layout">
+        <h2>艺术画廊</h2>
+        <p>英雄联盟符文大地上的各种风景</p>
+          <div class="scenic clearfix">
+            <figure>
+              <div class="other-news-box">
+              <a href="#">
+                <div class="mask">
+                  <div class="other-news">
+                    <span>  比尔吉沃特湾的周围环布着险峻的海峡和高耸的悬崖，即使是水生水长的当地人也同样觉得危险。… </span>
+                  </div>
+                </div>
+                <img src="http://yz.lol.qq.com/v1/assets/images/bilgewater-bilgewater-bay.jpg" alt="比尔吉沃特湾">
+              </a>
+              </div>
+              <figcaption>比尔吉沃特湾</figcaption>
+              <p>比尔吉沃特湾的周围环布着险峻的海峡和高耸的悬崖。</p>
+            </figure>
+           <figure>
+              <div class="other-news-box">
+                <a href="#">
+                  <div class="mask">
+                    <div class="other-news">
+                      <span>  普雷西典位于这片陆地的心脏地带，是艾欧尼亚最神圣的地方之一。… </span>
+                  </div>
+                </div>
+                <img src="http://yz.lol.qq.com/v1/assets/images/ionia-the-placidium-of-navori.jpg" alt="纳沃利的普雷西典">
+              </a>
+              </div>
+              <figcaption>纳沃利的普雷西典</figcaption>
+              <p>普雷西典位于这片陆地的心脏地带，是艾欧尼亚最神圣的地方之一。…</p>
+            </figure>
+            <figure>
+                <div class="other-news-box">
+                  <a href="#">
+                    <div class="mask">
+                      <div class="other-news">
+                        <span>古艾卡西亚的城墙脚下曾经有过一场残忍的大战。… </span>
+                    </div>
+                  </div>
+                  <img src="http://yz.lol.qq.com/v1/assets/images/void-the-fall-of-icathia.jpg" alt="艾卡西亚的陨落">
+                </a>
+                </div>
+                <figcaption>艾卡西亚的陨落</figcaption>
+                <p>古艾卡西亚的城墙脚下曾经有过一场残忍的大战。… </p>
+              </figure>
+              <figure>
+                  <div class="other-news-box">
+                    <a href="#">
+                      <div class="mask">
+                        <div class="other-news">
+                          <span>  边境集市兴旺于皮城和祖安交界处。… </span>
+                      </div>
+                    </div>
+                    <img src="http://yz.lol.qq.com/v1/assets/images/factions/image-gallery/zaun-bountymarkets.jpg" alt="祖安城中处处生机洋溢">
+                  </a>
+                  </div>
+                  <figcaption>祖安城中处处生机洋溢</figcaption>
+                  <p>边境集市兴旺于皮城和祖安交界处。…</p>
+                </figure>
+                <figure>
+                    <div class="other-news-box">
+                      <a href="#">
+                        <div class="mask">
+                          <div class="other-news">
+                            <span>  重建后的太阳圆盘悬在纳施拉美的街道之上。… </span>
+                        </div>
+                      </div>
+                      <img src="http://yz.lol.qq.com/v1/assets/images/factions/image-gallery/shurima-vekaurastreets.jpg" alt="比尔吉沃特湾">
+                    </a>
+                    </div>
+                    <figcaption>恕瑞玛的风景</figcaption>
+                    <p>重建后的太阳圆盘悬在纳施拉美的街道之上。… </p>
+                  </figure>
+                  <figure>
+                      <div class="other-news-box">
+                        <a href="#">
+                          <div class="mask">
+                            <div class="other-news">
+                              <span> 
+                                  船出了港，朝着深海扬帆
+                                  满载着骑士，一心只为救主生还
+                                  迢迢千里，恶鬼林林
+                                  亡者之地送来飓风
+                                  风暴泣诉着卷过了海空
+                                  群屿涌现，人人称其暗影。…
+                              </span>
+                          </div>
+                        </div>
+                        <img src="http://yz.lol.qq.com/v1/assets/images/factions/shadow-isles_splash.jpg" alt="王子挽歌">
+                      </a>
+                      </div>
+                      <figcaption>王子挽歌</figcaption>
+                      <p> 船出了港，朝着深海扬帆
+                          满载着骑士，一心只为救主生还
+                          迢迢千里，恶鬼林林
+                          亡者之地送来飓风
+                          风暴泣诉着卷过了海空
+                          群屿涌现，人人称其暗影
+                        </p>
+                    </figure>
+              
+          </div>
+    </section>
+    <section>
+        <div class="layout">
+        <h2>部分英雄介绍</h2>
+        <p>英雄联盟英雄介绍</p>
+        <ul class="champions">
+          <li>
+            <div class="bgimg">
+               <div class="img-mask sarah">
+            </div> 
+            </div>
+            <div class="information">
+              <h3>赏金猎人——厄运小姐</h3>
+              <h4>“风险多多，赏金多多。”</h4>
+               <p>以美貌闻名，但却以无情立命的莎拉是一位比尔吉沃特的船长，她在这座港镇的强硬犯罪集团中塑造了不容轻视的形象。
+                  在她还是个孩子的时候，亲眼目睹了海盗之王普朗克谋杀了自己的家人。多年以后她残忍地报仇雪恨，把他和他的旗舰连人带船一同炸飞。
+                  所有低估她的人都会发现，自己面对的是一个极具欺骗性的狡黠对手，还有可能要处理肚子里的一两颗子弹。</p>
+            </div>
+          </li>
+          <li>
+              <div class="bgimg"> <div class="img-mask raven"></div> </div>
+              <div class="information">
+                <h3>放逐之刃——锐雯 </h3>
+                <h4>“刀剑映出了战士的心。而我的心，漆黑且残破。” </h4>
+                 <p>曾担任诺克萨斯军队剑士长的锐雯，如今在那片她曾要征服的土地上流浪。她通过自己信念的力量和野蛮的行事风格在军中不断晋升，
+                   因此获得了一把传奇的符文之刃和自己的战团作为奖赏——然而在艾欧尼亚的前线上，
+                   锐雯对祖国的信仰遭到了考验，并最终粉碎。她切断了与帝国的一切关联，在分崩离析的世界中找寻自己的归宿，即使纷飞的谣言传说着诺克萨斯已经重铸……</p>
+              </div>
+            </li>
+         <li>
+              <div class="bgimg"> <div class="img-mask loong"></div> </div>
+              <div class="information">
+                <h3>铸星龙王——奥瑞利安·索尔</h3>
+                <h4>“瑟缩，崇拜，惊叹。人之常态，概莫能外。”</h4>
+                 <p>奥瑞利安•索尔曾创造了奇迹般的群星，为无垠的荒芜太空布下他宏伟的恩典。而如今，他的威能却遭人设计，
+                   被迫服务于某个潜藏在深空中的帝国。为了重返铸星大道，奥瑞利安•索尔誓要夺回属于自己的自由。哪怕召星降怒，倾覆众生。
+                   一道彗星的现世，常常预兆着动荡与剧变。随着躁动的彗尾拂过天际，人世间新王频立，旧主俱薨，就连九天之上的烁烁星光也要为之颠倒。
+                   而这些传闻都远不能描绘其背后真正悚然的事实：这惑人耳目的辉光下，隐藏着一个身怀伟力的星间灵物。
+                  </p>
+              </div>
+            </li>
+         <li>
+              <div class="bgimg"> <div class="img-mask lu"></div> </div>
+              <div class="information">
+                <h3>仙灵女巫——璐璐</h3>
+                <h3>“两点之间的最佳路径就是，上下颠倒，连起来，然后里外反转并且再次弄圆。”</h3>
+                 <p>璐璐是一位约德尔女巫，最著名的能力是召来梦境般的幻觉和奇异的小动物，小仙灵皮克斯就是她云游符文之地的伙伴。璐璐可以突发奇想地重塑现实，
+                    改变世界的本质结构，改造这个平凡的物质领域中任何让她感觉是限制的东西。
+                   虽然其他人对她的魔法颇有微词，往好听了说是一种异象，往难听了说是一种危害。但是璐璐始终认为，一点魔力的启发对任何人都没有坏处。</p>
+              </div>
+            </li>
+            <li>
+                <div class="bgimg"> <div class="end img-mask">
+                    <h1>英雄</h1>
+                    <h3>CHAMPIONS</h3>
+                </div> 
+              </div>
+              </li>
+        </ul>
+    </section>
+    <section class="bg-color">
+        <div class="layout">
+            <h2> 探索宇宙</h2>
+            <p>英雄联盟符文大地上的各种故事</p>
+        <ul class="story clearfix">
+          <li>
+            <div class="invite-img"><img src="http://yz.lol.qq.com/v1/assets/images/star03banner.jpg" alt="合宿邀请"></div>
+            <div class="invite">
+            <h3> 合宿邀请</h3>
+            <p>好吧，我承认在他们面前用力摔门是我大惊小怪了。</p>
+            </div>
+          <ul class="icon clearfix">
+            <li><a href="#"> <span>in</span> </a></li> 
+            <li><a href="#"><span>f</span></a></li>
+            <li><a href="#"><span>B</span>  </a></li>
+          </ul>
+          </li>
+          <li>
+              <div class="invite-img"><img src="http://yz.lol.qq.com/v1/assets/images/ryze-cg-bg.jpg" alt="合宿邀请"></div>
+              <div class="invite">
+              <h3> 瑞兹：力量的召唤</h3>
+              <p>瑞兹穷搜符文之地，寻找被遗忘的过去。</p>
+              </div>
+            <ul class="icon clearfix">
+              <li><a href="#"> <span>in</span> </a></li> 
+              <li><a href="#"><span>f</span></a></li>
+              <li><a href="#"><span>B</span>  </a></li>
+            </ul>
+            </li>
+          <li>
+                <div class="invite-img"><img src="http://yz.lol.qq.com/v1/assets/images/factions/image-gallery/zaun-collecttechmaturgy.jpg" alt="合宿邀请"></div>
+                <div class="invite">
+                <h3> 结为一体</h3>
+                <p>我面前是尖啸升降机硕大圆润的肚皮，里面装满了无...</p>
+                </div>
+              <ul class="icon clearfix">
+                <li><a href="#"> <span>in</span> </a></li> 
+                <li><a href="#"><span>f</span> </a></li>
+                <li><a href="#"><span>B</span>  </a></li>
+              </ul>
+              </li> 
+        </ul>
+        <p>她的行为曾经多次将符文之地推向全面战争的边缘。在经历过令人绝望的战役后，
+           弗雷尔卓德的冰原、巨神峰的高山、恕瑞玛的沙漠，各地都开始有最黑暗的魔法再次散播，
+           逐渐包围并逼近诺克萨斯。可能乐芙兰依然是那个背叛了铁铠冥魂的苍白女巫，也可能她只是众多空壳幻影之一。不管怎样，她的影响显然从远古开始就从未消亡。
+
+            黑色玫瑰还没有真正绽放。</p>
+    </section>
+    <section>
+      <div class="icon-area">
+        <div class=" layout "> 
+        <a href=""><img src="http://yz.lol.qq.com/images/iona_crest_icon.png" alt="艾欧尼亚"></a>
+        <a href=""> <img src="http://yz.lol.qq.com/images/noxus_crest_icon.png" alt="诺克萨斯"></a>
+        <a href=""> <img src="http://yz.lol.qq.com/images/shurima_crest_icon.png" alt="恕瑞玛"></a>
+        <a href=""> <img src="http://yz.lol.qq.com/images/bandle_city_crest_icon.png" alt="班德尔城"></a>
+      </div>
+    </div>
+    </section>
+  </main>
+  <footer>
+    <div class="bgimg-end">
+    <h2>联系我们</h2>
+    <p>您的建议对我们很重要</p>
+    <form action="">
+      <div class="clearfix infor-box">
+      <div class="ess-infor">
+          <div class="input-box"><input type="text" class="input-style" name="name" id="name" placeholder="请输入名字"></div>
+          <div class="input-box"><input type="text" class="input-style" name="e-mail" id="e-mail" placeholder="请输入邮箱"></div>
+          <div class="input-box"><input type="text" class="input-style" name="e-mail" id="name" placeholder="请输入电话号码"></div>
+      </div>
+      <div class="message"> <textarea class="input-style" name="message" id="message" cols="30" rows="10" placeholder="请输入建议"></textarea></div>
+    </div>
+      <div><input type="submit" class="submit" value="提交"></div>
+    </form>
+  </div>
+
+  <div class="bottom clearfix">
+    <div class="copyright">
+    <span>COPYRIGHT © 1998 – 2018 TENCENT. ALL RIGHTS RESERVED</span>
+  </div>
+  <div class="bottom-icon">
+      <ul class="icon clearfix">
+          <li><a href="#"> <span>in</span> </a></li> 
+          <li><a href="#"><span>f</span> </a></li>
+          <li><a href="#"><span>B</span>  </a></li>
+        </ul>
+    </div>
+    <div class="other">
+        <a href="#">腾讯互动娱乐</a>
+        <a href="#">成长守护平台</a>
+      </div>
+  </div>
+  </footer>
+</body>
+</html>
